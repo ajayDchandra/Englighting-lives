@@ -7,7 +7,7 @@ from os import path
 def make_post(year, post,image):
 
     
-    file1 = open(year + "/" + post,"rt")
+    file1 = open("./blogs/" + year + "/" + post,"rt")
 
     #reads the file line by line to capture each element
     title = file1.readline()
@@ -22,7 +22,7 @@ def make_post(year, post,image):
 
     imagelink = "../images/post_pictures/{}".format(image)
     fin = open("single.html", "rt")
-    fout = open(year + "/websites/1.html", "w+")
+    fout = open("./blogs/" + year + "/websites/1.html", "w+")
     
     changes = {
         "title_sample":title,
