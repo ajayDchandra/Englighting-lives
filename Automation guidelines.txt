@@ -1,0 +1,9 @@
+-make a copy of the template.
+-store it in the year specified in the first line of the post.
+-let the user give the address of the image used, blog post.
+-extract the title and the body into the script.
+-put the title inside the title divison.
+-take the first 1-2 lines from the body put it in the lead paragraph tag, and the rest between normal paragraph tags in the copy of the template
+-name the template as 1.html, save it and increment the name of the other posts in the directory.
+-the blog home page will show "1.html","2.html","3.html","4.html" posts. 
+
