@@ -2,30 +2,45 @@
 
 	margin-bottom: 0px;
 	z-index: 1999;
-	position: absolute;
+	position: relative;
 	top: 0;
 	width: 100%;
-	// background: $white;
-	border-bottom: rgba($white,.7);
-
+	padding: 1rem;
+	@include media-breakpoint-down(md) {
+		padding-top: 3rem;
+		padding-bottom: 3rem;
+	}
+	.toggle-button {
+		position: absolute;
+		right: 0px;
+	}
 	.site-logo {
-		position: relative;
-		left: 0;
-		top: -5px;
+		margin: 0;
+		padding: 0;
+		font-size: 1.7rem;
+		a {
+			color: $primary;
+			text-transform: lowercase;
+		}
 		
+
+		@include media-breakpoint-down(md) {
+			float: left;
+			position: relative;
+		}
 	}
 	
+	
 	.site-navigation {
-		
+		&.border-bottom {
+			border-bottom: 1px solid lighten($gray-100, 80%)!important;
+		}
 		.site-menu {
-			
+			margin: 0;
+			padding: 0;
 			margin-bottom: 0;
 			.active {
-				// > a {
-					color: $primary;
-					display: inline-block;
-					padding: 5px 20px;
-				// }
+				color: $primary!important;
 			}
 			a {
 				text-decoration: none!important;
@@ -34,14 +49,22 @@
 			> li {
 				display: inline-block;
 				> a {
-					padding: 5px 20px;
-					color: $black;
+					margin-left: 15px;
+					margin-right: 15px;
+					padding: 20px 0px;
+					color: $white!important;
 					display: inline-block;
 					text-decoration: none!important;
+					// border-bottom: 2px solid transparent;
 					
 					&:hover {
 						color: $primary;
 						
+					}
+				}
+				&.active {
+					> a {
+						color: $primary!important;
 					}
 				}
 			}
@@ -68,7 +91,6 @@
 					text-align: left;
 					border-top: 2px solid $primary;
 					box-shadow: 0 2px 10px -2px rgba(0,0,0,.1);
-					
 					padding: 0px 0;
 					margin-top: 20px;
 					margin-left: 0px;
@@ -77,7 +99,9 @@
 				
 					&.arrow-top {
 						position: absolute;
+
 						&:before {
+							display: none;
 							bottom: 100%;
 							left: 20%;
 							border: solid transparent;
@@ -101,24 +125,28 @@
 						text-transform: none;
 						letter-spacing: normal;
 						transition: 0s all;
-						color: $black;
-					}
-					.active {
-						// > a {
+						color: $black!important;
+						&.active {
 							color: $primary!important;
-						// }
+							background: $gray-100;
+						}
 					}
+					// .active {
+					// 	> a {
+					// 		color: $primary!important;
+					// 	}
+					// }
 					> li {
 						list-style: none;
 						padding: 0;
 						margin: 0;
-						min-width: 210px;
+						min-width: 200px;
 						> a {
 							padding: 9px 20px;
 							display: block;
 							&:hover {
-								background: lighten($gray-200, 2%);
-								color: $black;
+								background: $gray-100;
+								color: $gray-400;
 							}
 						}
 
@@ -135,8 +163,8 @@
 							}
 							&:hover, &:active, &:focus {
 								> a {
-									// background: lighten($gray-4, 2%);
-									// color: $gray-1;
+									background: $gray-100;
+									color: $gray-400;
 								}
 							}
 						}
@@ -202,7 +230,7 @@
 				cursor: pointer;
 				transition: .3s all ease;
 				&:hover {
-					// color: $gray-1;
+					color: $gray-400;
 				}
 			}
 		}
@@ -255,10 +283,15 @@
 		li {
 			position: relative;
 			display: block;
-			.active {
-				// > a {
+			.nav-link {
+				&.active {
 					color: $primary;
-				// }
+				}
+			}
+			&.active {
+				> a {
+					color: $primary;
+				}
 			}
 		}
 		.arrow-collapse {
@@ -346,10 +379,13 @@
 
 }
 
+
 .sticky-wrapper {
-	position: absolute;
+	position: relative;
 	z-index: 100;
 	width: 100%;
+	position: relative;
+	top: 0;
 	& + .site-blocks-cover {
 		// margin-top: 140px;
 		// margin-top: 96px;
@@ -358,21 +394,19 @@
 		transition: .3s all ease;
 	}
 	.site-navbar {
-		border-bottom: 1px solid rgba($white, .2);
-		.site-menu-toggle {
-			color: $white;
-		}
+		background: $white;
+		// border-bottom: 1px solid rgba($white, .2);
 		.site-logo {
 			a {
-				color: $white;
+				// color: $white;
 			}
 		}
-		.site-menu {
-			> li {
-				> a {
-					color: rgba($white, .7)!important;
-					&:hover, &.active {
-						color: $white!important;
+		ul {
+			li {
+				a {
+					color: rgba($black, .7)!important;
+					&.active {
+						color: $black!important;
 					}
 				}
 			}
@@ -382,21 +416,18 @@
 		
 		.site-navbar {
 			background: $white;
-			border-bottom: 1px solid transparent;
-			box-shadow: 4px 0 20px -5px rgba(0,0,0,.1);
-			.site-menu-toggle {
-				color: $black;
-			}
+			// border-bottom: 1px solid transparent;
+			box-shadow: 4px 0 20px -5px rgba(0,0,0,.2);
 			.site-logo {
 				a {
 					color: $primary;
 				}
 			}
-			.site-menu {
-				> li {
-					> a {
+			ul {
+				li {
+					a {
 						color: $black!important;
-						&:hover, &.active {
+						&.active {
 							color: $primary!important;
 						}
 					}
@@ -405,8 +436,12 @@
 		}
 	}
 	.shrink {
-		padding-top: 10px!important;
-		padding-bottom: 10px!important;
+		padding-top: 0px!important;
+		padding-bottom: 0px!important;
+		@include media-breakpoint-down(md) {
+			padding-top: 30px!important;
+			padding-bottom: 30px!important;
+		}
 	}
 }
 
