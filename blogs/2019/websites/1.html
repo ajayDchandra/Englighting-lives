@@ -94,12 +94,14 @@
    
     
     <div class="ftco-blocks-cover-1">
-      <div class="ftco-cover-1 overlay" style="background-image: url('pic_sample')">
+      <div class="ftco-cover-1 overlay" style="background-image: url('../images/post_pictures/poal.jpg')">
         <div class="container">
           <div class="row align-items-center justify-content-center">
             <div class="col-lg-6 text-center">
-              <span class="d-block mb-3 text-white" data-aos="fade-up">Oct 09, 2019 <span class="mx-2 text-primary">&bullet;</span> author_sample </span>
-                <h1 class="mb-4 text-cursive h1" data-aos="fade-up" data-aos-delay="100">title_sample</h1>
+              <span class="d-block mb-3 text-white" data-aos="fade-up">Oct 09, 2019 <span class="mx-2 text-primary">&bullet;</span> import os
+ </span>
+                <h1 class="mb-4 text-cursive h1" data-aos="fade-up" data-aos-delay="100">
+</h1>
             </div>
           </div>
         </div>
@@ -111,8 +113,10 @@
       <div class="container">
         <div class="row">
           <div class="col-md-7 mr-auto blog-content">
-            <p class="lead">lead_sample</p>
-            <p>description_sample</p>
+            <p class="lead">import shutil
+from os import path
+</p>
+            <p>['\n', '\n', 'def make_post(year, post,image):\n', '\n', '    \n', '    file1 = open("./blogs/" + year + "/" + post,"rt")\n', '\n', '    #reads the file line by line to capture each element\n', '    title = file1.readline()\n', '    author = file1.readline()\n', '    lead = file1.readline()\n', '    lead = lead + file1.readline()\n', '    description = file1.readlines()\n', '\n', '    file1.close()\n', '    \n', '    year.strip()\n', '\n', '    imagelink = "../images/post_pictures/{}".format(image)\n', '    fin = open("single.html", "rt")\n', '    fout = open("./blogs/" + year + "/websites/1.html", "w+")\n', '    \n', '    changes = {\n', '        "title_sample":title,\n', '        "author_sample": author,\n', '        "pic_sample":imagelink,\n', '        "lead_sample":lead,\n', '        "description_sample":description\n', '        }\n', '\n', '    for line in fin:\n', '        for item,replacement in changes.items():\n', '            if item in line:\n', '                line = line.replace(item,replacement)\n', '\n', '        fout.write(line)    \n', '    \n', '    fin.close()\n', '    fout.close()\n', '    print(year)\n', '    #updateHtml()\n', '\n', '\n', 'def updateHtml():\n', '    fpost = open("out.txt","r")\n', '\n', '    post = fpost.read()\n', '    \n', '    fhtml = open("index.html","r")\n', '    content = fhtml.readlines()\n', '    fhtml.close()\n', "    Word = '<!FirstPost>\\n'\n", '    \n', '\n', '    for index,word in enumerate(content):\n', '        for letter in word:\n', '            if letter == "!":\n', '                content[index] = "<!FirstPost> \\n {}  /\\n \\n ".format(post)\n', '    \n', "    listToStr = ''.join([str(elem) for elem in content]) \n", '\n', '\n', '    fhtml = open("index.html","w")\n', '    fhtml.write(listToStr)\n', '    fhtml.close()\n', '\n', '\n', '    fhtml.close()\n', '    fpost.close()\n', '    return \n', '\n', 'Year = input("Year of publishing:")\n', 'Image = input("Name of the image with its extension:")\n', 'Post = input("Name of the post file")\n', '\n', 'make_post(Year,Post,Image)']</p>
 
 
             <div class="pt-5">

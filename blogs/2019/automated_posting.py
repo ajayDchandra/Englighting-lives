@@ -10,11 +10,11 @@ def make_post(year, post,image):
     file1 = open("./blogs/" + year + "/" + post,"rt")
 
     #reads the file line by line to capture each element
-    title = str(file1.readline())
-    author = str(file1.readline())
-    lead = str(file1.readline())
-    lead = lead + str(file1.readline())
-    description = str(file1.readlines())
+    title = file1.readline()
+    author = file1.readline()
+    lead = file1.readline()
+    lead = lead + file1.readline()
+    description = file1.readlines()
 
     file1.close()
     
@@ -33,9 +33,9 @@ def make_post(year, post,image):
         }
 
     for line in fin:
-        for item in changes.keys():
+        for item,replacement in changes.items():
             if item in line:
-                line = line.replace(item,changes[item])
+                line = line.replace(item,replacement)
 
         fout.write(line)    
     
@@ -53,7 +53,8 @@ def updateHtml():
     fhtml = open("index.html","r")
     content = fhtml.readlines()
     fhtml.close()
-       
+    Word = '<!FirstPost>\n'
+    
 
     for index,word in enumerate(content):
         for letter in word:
@@ -72,8 +73,8 @@ def updateHtml():
     fpost.close()
     return 
 
-Year = input("Year of publishing: ")
-Image = input("Name of the image with its extension: ")
-Post = input("Name of the post file: ")
+Year = input("Year of publishing:")
+Image = input("Name of the image with its extension:")
+Post = input("Name of the post file")
 
 make_post(Year,Post,Image)
