@@ -4,9 +4,9 @@ import shutil
 from os import path
 
 
-def make_post(year, post,image):
+def make_post(year, post,image,name):
 
-    
+    ##Takes the post from the year folder inside the blogs folder
     file1 = open("./blogs/" + year + "/" + post,"rt")
 
     #reads the file line by line to capture each element
@@ -22,7 +22,9 @@ def make_post(year, post,image):
 
     imagelink = "../images/post_pictures/{}".format(image)
     fin = open("single.html", "rt")
-    fout = open("./blogs/" + year + "/websites/1.html", "w+")
+
+    ##Puts a html file in the websites folder of the blogs folder
+    fout = open("./blogs/" + year + "/websites/" + name , "w+")
     
     changes = {
         "title_sample":title,
@@ -41,39 +43,10 @@ def make_post(year, post,image):
     
     fin.close()
     fout.close()
-    print(year)
-    #updateHtml()
-
-
-def updateHtml():
-    fpost = open("out.txt","r")
-
-    post = fpost.read()
-    
-    fhtml = open("index.html","r")
-    content = fhtml.readlines()
-    fhtml.close()
-       
-
-    for index,word in enumerate(content):
-        for letter in word:
-            if letter == "!":
-                content[index] = "<!FirstPost> \n {}  /\n \n ".format(post)
-    
-    listToStr = ''.join([str(elem) for elem in content]) 
-
-
-    fhtml = open("index.html","w")
-    fhtml.write(listToStr)
-    fhtml.close()
-
-
-    fhtml.close()
-    fpost.close()
-    return 
 
 Year = input("Year of publishing: ")
 Image = input("Name of the image with its extension: ")
 Post = input("Name of the post file: ")
+Name = input("Enter the name of the resulting file (Add '.html' extension to it)")
 
-make_post(Year,Post,Image)
+make_post(Year,Post,Image,Name)
